@@ -29,7 +29,7 @@ trait SolverSpec extends AnyFunSuite {
     val t0 = System.nanoTime()
     val result = block    // call-by-name
     val t1 = System.nanoTime()
-    info(s"${solver.getClass.getSimpleName} time: ${t1 - t0}ns")
+    info(s"${solver.getClass.getSimpleName} time: ${ (t1 - t0) / (1000 * 1000 * 1000).toDouble }s")
     result
   }
 }
