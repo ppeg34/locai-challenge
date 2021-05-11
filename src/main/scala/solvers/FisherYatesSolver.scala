@@ -4,7 +4,7 @@ import scala.collection.immutable.NumericRange
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
 
-object FisherYatesIntSolver extends SolverInterface {
+object FisherYatesSolver extends SolverInterface {
 
   def generateList(): List[Int] = {
     makeList().map(_.toInt).toList

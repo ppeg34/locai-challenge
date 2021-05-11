@@ -23,6 +23,7 @@ trait SolverSpec extends AnyFunSuite {
       .equals(10000)
   }
 
+  // 10000 iterations for profiling purposes
   time { (1 to 10000).foreach( _ => solver.runCalc() ) }
 
   def time[R](block: => R): R = {

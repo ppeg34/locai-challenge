@@ -3,6 +3,6 @@ ThisBuild / organization := "com.example"
 
 lazy val hello = (project in file("."))
   .settings(
-    name := "Hello",
+    name := "LocaiTest",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.7" % Test,
   )
