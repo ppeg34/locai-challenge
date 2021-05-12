@@ -10,13 +10,17 @@
 [Install java/sbt](https://www.scala-sbt.org/1.x/docs/Setup.html)
 
 Clone this repo:
+
 `git clone https://github.com/ppeg34/locai-challenge.git`
+
 `cd locai-challenge`
 
 Run scala tests:
+
 `sbt test`
 
-Test F# implementation with output
+Test F# implementation with output:
+
 `dotnet fsi fsharp/fisheryates.fsx`
 
 # Project Structure
