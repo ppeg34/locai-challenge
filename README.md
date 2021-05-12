@@ -1,4 +1,4 @@
-#Project Structure
+# Project Structure
 
 All of the scala implementations of the algorithms required are in src/main/scala/solvers folder.
 There is a scala trait, SolverInterface, that is an interface that the Solvers implement.
@@ -13,7 +13,7 @@ Optionally, they can override iterations.  This is the number of times a solver 
 I default it to 10000, but this was too much for some of the solvers and I override them so that they execute in a
 reasonable amount of time.
 
-#Overall Approach
+# Overall Approach
 
 I initially sought to meet the requirements of the problem in the most naive
 way possible.  The result was aptly-named NaiveSolver. This gave me a very basic implementation to write 
@@ -24,19 +24,19 @@ After a quick naive solution and some quick sanity-checking tests, I began imple
 I fairly quickly realized that shuffling a range of numbers 1 to 10000 would likely be the most effective means of 
 ensuring unique numbers that stayed in the range of 1 to 10000.  
 
-##Naive Solver
+## Naive Solver
 
 This simply generates a range of numbers from 1 to 10000 and randomizes them using scala's built-in shuffle 
 implementation. In the wild, this is the solution I'd default to as I can think of it on the spot, its fast, and other
 people can easily see how it works.
 
-##Short Solver
+## Short Solver
 
 This was a quick attempt at optimizing the naive solver.  I simply tried to use Short data types instead of Ints, however
-the benefits were negligible if any.  This wasn't surprising to me as this costly operation of this algorithm is
+the benefits were negligible if any.  This wasn't surprising to me as the costly operation of this algorithm is
 in changing the pointers to the data in the arraybuffer, not in changing the data itself.
 
-##Fisher-Yates
+## Fisher-Yates
 
 I quickly looked into scala's source code to see how shuffle was implemented.  By eliminating alternative type handling,
 and streamlining the implementation I was able to shave off a significant amount of time from the algorithm.  This ended 
@@ -44,7 +44,7 @@ up being the fastest option.
 
 I implemented this same algorithm in F# fsharp/fisheryates.fsx
 
-##Fisher-Yates Recursive
+## Fisher-Yates Recursive
 
 This was a recursive implementation of the fisher-yates algorithm.  When I set out to make this implementation I was hoping
 I could implement by only using head, tail, reverse, and the cons operator as these are highly optimized when dealing with 
@@ -53,7 +53,7 @@ immutable list structures in scala, but splitting the list ultimately had to be 
 Ultimately, this highlighted that this algorithm was a good use case for a mutable indexed list due to constant time 
 updating and accessing shown in the Fisher-Yates solution above.
 
-##Overhand Solver
+## Overhand Solver
 
 This is an implementation of an overhand card shuffling technique. This is DOES NOT generate a random list as implemented.
 It need to execute an additional number of iterations in order to ensure that the list is shuffled sufficiently, but I 
@@ -67,17 +67,19 @@ think of it as two stacks (represented by a card shuffler's right and left hands
 up to 100 for this implementation) is taken off the top of one stack and placed into the other stack repetitively until
 this stack is depleted.  The process is then repeated until randomness parameters are met.
 
-##Sort Solver
+## Sort Solver
 
 This was a simple solver with admirable performance, that operated differently from fisher-yates.  
 I mapped a random int to each number in a range from 1 to 10000.
 Then I sorted the list by the random value.
 
-#Abbreviated Results
+# Abbreviated Results
 
+```
 FisherYatesSolver:              1403505ns per iteration 
 NaiveSolver:                    1773407ns per iteration 
 ShortSolver:                    1731974ns per iteration 
 SortSolver:                     3805183ns per iteration 
 OverhandSolver:                27839818ns per iteration 
-FisherYatesRecursiveSolver:   426600687ns per iteration 
+FisherYatesRecursiveSolver:   426600687ns per iteration
+```
