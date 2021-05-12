@@ -10,18 +10,19 @@ object FisherYatesRecursiveSolver extends SolverInterface {
   }
 
   def makeList(): Seq[Short] = {
+
     @tailrec
-    def doit(items: Seq[Short], iteration: Short): Seq[Short] = {
-      if (iteration > 0) {
-        val k = Random.nextInt(iteration)
-        val (a, b) = items.splitAt(k)
-        doit(a ++ b.tail ++ Seq(b.head), (iteration - 1).toShort)
-      } else {
-        items
+    def iterateAlg(items: Seq[Short], iteration: Short): Seq[Short] = {
+      if (iteration == 0) {
+        return items
       }
+
+      val k = Random.nextInt(iteration)
+      val (a, b) = items.splitAt(k)
+      iterateAlg(a ++ b.tail ++ Seq(b.head), (iteration - 1).toShort)
     }
 
-    doit( 1 to 10000 map(a => a.toShort), 10000 )
+    iterateAlg( 1 to 10000 map(a => a.toShort), 10000 )
   }
 
   override def runCalc(): Unit = makeList()
