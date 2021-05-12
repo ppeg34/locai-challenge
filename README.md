@@ -101,10 +101,10 @@ Then I sorted the list by the random value.
 # Abbreviated Results
 
 ```
-FisherYatesSolver:              1403505ns per iteration 
-NaiveSolver:                    1773407ns per iteration 
-ShortSolver:                    1731974ns per iteration 
-SortSolver:                     3805183ns per iteration 
-OverhandSolver:                27839818ns per iteration 
-FisherYatesRecursiveSolver:   426600687ns per iteration
+FisherYatesSolver:              1.403505ms per iteration 
+NaiveSolver:                    1.773407ms per iteration 
+ShortSolver:                    1.731974ms per iteration 
+SortSolver:                     3.805183ms per iteration 
+OverhandSolver:                27.839818ms per iteration 
+FisherYatesRecursiveSolver:   426.600687ms per iteration
 ```
