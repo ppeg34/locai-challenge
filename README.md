@@ -1,3 +1,24 @@
+# TLDR
+
+[F# Fisher-Yates Solution](https://github.com/ppeg34/locai-challenge/blob/main/fsharp/fisheryates.fsx)
+
+[Scala Solutions](https://github.com/ppeg34/locai-challenge/tree/main/src/main/scala/solvers)
+
+[Scala Tests](https://github.com/ppeg34/locai-challenge/blob/main/src/test/scala/solvers/SolverSpec.scala)
+
+### Setup
+[Install java/sbt](https://www.scala-sbt.org/1.x/docs/Setup.html)
+
+Clone this repo:
+`git clone https://github.com/ppeg34/locai-challenge.git`
+`cd locai-challenge`
+
+Run scala tests:
+`sbt test`
+
+Test F# implementation with output
+`dotnet fsi fsharp/fisheryates.fsx`
+
 # Project Structure
 
 All of the scala implementations of the algorithms required are in src/main/scala/solvers folder.
@@ -75,9 +96,11 @@ Then I sorted the list by the random value.
 
 # Abbreviated Results
 
-FisherYatesSolver:              1.403505ms per iteration 
-NaiveSolver:                    1.773407ms per iteration 
-ShortSolver:                    1.731974ms per iteration 
-SortSolver:                     3.805183ms per iteration 
-OverhandSolver:                27.839818ms per iteration 
-FisherYatesRecursiveSolver:   426.600687ms per iteration 
+```
+FisherYatesSolver:              1403505ns per iteration 
+NaiveSolver:                    1773407ns per iteration 
+ShortSolver:                    1731974ns per iteration 
+SortSolver:                     3805183ns per iteration 
+OverhandSolver:                27839818ns per iteration 
+FisherYatesRecursiveSolver:   426600687ns per iteration
+```
