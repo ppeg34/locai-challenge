@@ -5,6 +5,7 @@ import scala.util.Random
 
 // Modern implementation fo the fisher-yates algorithm
 // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Modern_method
+
 // This is a simplified version of scala.util.Random.shuffle
 // https://github.com/scala/scala/blob/v2.13.5/src/library/scala/util/Random.scala#L260
 object FisherYatesSolver extends SolverInterface {

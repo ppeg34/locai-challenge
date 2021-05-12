@@ -3,6 +3,7 @@ package solvers
 import scala.annotation.tailrec
 import scala.util.Random
 
+// https://en.wikipedia.org/wiki/Shuffling#overhand
 object OverhandSolver extends SolverInterface {
   override def generateList(): List[Int] = makeList().toList
 
