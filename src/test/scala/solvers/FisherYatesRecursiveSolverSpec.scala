@@ -1,7 +1,7 @@
 package solvers
 
-// disabled because it is way too slow
-class FisherYatesRecursiveSolverSpec { //extends SolverSpec {
+class FisherYatesRecursiveSolverSpec extends SolverSpec {
+  override def iterations: Int = 10
   def solver: SolverInterface = FisherYatesRecursiveSolver
 }
 

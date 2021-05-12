@@ -4,9 +4,10 @@ import org.scalatest.funsuite._
 
 trait SolverSpec extends AnyFunSuite {
   def solver: SolverInterface
+  def iterations: Int = 10000
 
-  val className = this.getClass.getSimpleName
-  val resultList = solver.generateList()
+  private val className = this.getClass.getSimpleName
+  private val resultList = solver.generateList()
 
   test(className + " length is 10000") {
     assert(resultList.length == 10000)
@@ -23,14 +24,16 @@ trait SolverSpec extends AnyFunSuite {
       .equals(10000)
   }
 
-  // 10000 iterations for profiling purposes
-  time { (1 to 10000).foreach( _ => solver.runCalc() ) }
+  time { (1 to iterations).foreach( _ => solver.runCalc() ) }
 
+  // times the duration of executing different solvers.
   def time[R](block: => R): R = {
     val t0 = System.nanoTime()
     val result = block    // call-by-name
     val t1 = System.nanoTime()
-    info(s"${solver.getClass.getSimpleName} time: ${ (t1 - t0) / (1000 * 1000 * 1000).toDouble }s")
+
+    val nanosPerIter = (t1 - t0) / iterations
+    info(s"${solver.getClass.getSimpleName } time: ${ nanosPerIter }ns per iteration")
     result
   }
 }
